@@ -1,0 +1,31 @@
+<app-bread-crumb 
+[itens]="[{text:'Categorias'}]"
+></app-bread-crumb>
+
+<app-page-header
+page-title = 'Categorias'
+button-text = '+ Nova Categoria'
+button-link = 'new'
+button-class = 'btn-success'
+></app-page-header>
+
+<table class="table table-over">
+    <thead>
+        <tr class="bg-primary text-light">
+            <th>Categoria</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor=" let categorie of resources">
+            <td>
+                <strong>{{categorie.name}}</strong><br>
+                <small>{{categorie.description}}</small>
+            </td>
+            <td>
+                <a [routerLink]="[categorie.id, 'edit']" class="btn btn-outline-info btn-sm mr-2">Editar</a>
+                <button (click)="deleteResource(categorie)" class="btn btn-outline-danger btn-sm">Excluir</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
